@@ -158,7 +158,7 @@ Are the vibes of this assistant's answers aligned with your vibes? Why or why no
 
 ##### ✅ Answer:
 
-## Mostly the vibes are okay, he provides the information that he needs to provide, he follows simple instructions. Maybe the only vibes that are the produced code due to the fact that the messages aren't being formated correctly even though the response from chat has formats. Also without message examples/boundaries my model produces messages that mental coach shouldnt give
+## Mostly the vibes are okay, he provides the information that he needs to provide, he follows simple instructions. Maybe the only vibes that are not okay are the messages that gets produced, it's not being formatted correctly, I need to make some kind of utils class to format the message. Also without message examples/boundaries my model produces messages that mental coach shouldn't give
 
 #### 🏗️ Activity #3: Personal Vibe Checking Evals (Requires Additional Capabilities)
 
@@ -185,7 +185,7 @@ What are some limitations of your application?
 
 ##### ✅ Answer:
 
-The limitation of this application is that it has basic knowledge of all things, but not specifics which don't live in his memory. For it to know when my dogs groomer appointment is he has to have some way to access my calendar, he can't know specifics he wasn't trained on or if we didn't provided that info in it's context. Second prompt is more general, I gave him my current city and the destination, and it gathered the info based on available knowledge. He also instructed me to provide the info about time/day for a better estimate.
+The limitation of this application is that it has basic knowledge of all things, but not specifics which don't live in his context. For it to know when my dogs groomer appointment is he has to have some way to access my calendar, he can't know specifics he wasn't trained on or if we didn't provided that info in it's context. Second prompt is more general, I gave him my current city and the destination, and it gathered the info based on available knowledge. He also instructed me to provide the info about time/day for a better estimate.
 
 ---
 
@@ -201,7 +201,7 @@ Please make adjustments to your application that you believe will improve the vi
 
 ##### Adjustments Made:
 
-- I made a few adjustments, mainly around defining how the assistant should behave and respond to different user inputs using few-shot prompting. Now if the message is not related to topic of mental health, for example the user asks to give recepie for baking a cake, the model will politley refuse.
+- I made a few adjustments, mainly around defining how the assistant should behave and respond to different user inputs using few-shot prompting. Now if the message is not related to topic of mental health, for example the user asks to give recepie for baking a cake, the model will politley refuse saying that it is outside of his scope.
 
 -For the frontend part I did add some formatting utils so that the message is properly formatted. Also the frontend vibe is now more soothing than matrix style which is a bit too much for a mental support agent :).
 
@@ -211,7 +211,8 @@ Please make adjustments to your application that you believe will improve the vi
 
 1.  The changes I made deffinetly improved the vibes because the model now acts as a mental coach, and doesn't answer the things he shouldn't answer, like giving recepies.
 2.  The frontend part is better formmated the response is not one string without paragraphs etc. also in string formater there is cross site scripting protection (not really good, but good enough) so that javascript script can't be injected.
-3.  I did change the model to gpt5-nano but the quality of response are mostly same for this simple topics.
+3.  I did change the model to gpt5-nano but the quality of response are mostly same for simple topics.
+4.  Adding a hard boundary is maybe to harsh, because if user asks for baking a cake and feeling blue, the model should adress that it cannot help with cake but offer assistance in feeling blue.
 
 ## Submitting Your Homework
 
