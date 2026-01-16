@@ -5,7 +5,7 @@
 
 <h1 align="center" id="heading">Session 1: Introduction and Vibe Check</h1>
 
-### [Quicklinks](https://github.com/AI-Maker-Space/AIE9/tree/main/00_AIM_Quicklinks)
+### [Quicklinks](https://github.com/AI-Maker-Space/AIE9/tree/main/00_AIE_Quicklinks)
 
 | 📰 Session Sheet                                                                                        | ⏺️ Recording                                                                                        | 🖼️ Slides                                                                                                                                                                         | 👨‍💻 Repo       | 📝 Homework                                                             | 📁 Feedback                                          |
 | :------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :---------------------------------------------------------------------- | :--------------------------------------------------- |
@@ -29,7 +29,7 @@ In the following assignment, you are required to take the app that you created f
 
 You will be required to submit a link to your GitHub, as well as screenshots of the completed "vibe checks" through the provided Google Form!
 
-> NOTE: This will require you to make updates to your personal class repository, instructions on that process can be found [here](https://github.com/AI-Maker-Space/AIE9/tree/main/00_Initial_Setup)!
+> NOTE: This will require you to make updates to your personal class repository, instructions on that process can be found [here](https://github.com/AI-Maker-Space/AIE9/tree/main/00_Docs/Prerequisites/Initial_Setup)!
 
 #### A Note on Vibe Checking
 
