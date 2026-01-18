@@ -1,10 +1,8 @@
 def assign_metadata_category(text: str) -> str:
     """Assigns a category to the text based on keyword in chunk of text"""
     
-    # Convert to lowercase once (more efficient)
     text_lower = text.lower()
 
-    # Defining keywords for each category (removed duplicates)
     exercise_keywords = ["exercise", "workout", "fitness", "gym", "sports", "cardio", "strength", 
                         "flexibility", "balance", "stretching", "aerobic", "crossfit", "yoga", 
                         "physical activity", "exercise routine", "exercise plan", "exercise program", 
