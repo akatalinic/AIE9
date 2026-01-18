@@ -12,13 +12,20 @@ def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
     norm_b = np.linalg.norm(vector_b)
     return dot_product / (norm_a * norm_b)
 
+def euclidean_distance(vector_a: np.ndarray, vector_b: np.ndarray) -> float:
+    """Computes Euclidean distance between two vectors."""
+    diff = vector_a - vector_b
+    return float(np.sqrt(np.dot(diff, diff)))
+
+
 
 class VectorDatabase:
     def __init__(self, embedding_model: EmbeddingModel = None):
         self.vectors = defaultdict(np.array)
+        self.metadata = {}
         self.embedding_model = embedding_model or EmbeddingModel()
 
-    def insert(self, key: str, vector: np.array) -> None:
+    def insert(self, key: str, vector: np.array, metadata: dict = None) -> None:
         self.vectors[key] = vector
 
     def search(
