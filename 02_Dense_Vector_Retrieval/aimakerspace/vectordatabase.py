@@ -27,6 +27,8 @@ class VectorDatabase:
 
     def insert(self, key: str, vector: np.array, metadata: dict = None) -> None:
         self.vectors[key] = vector
+        if metadata:
+            self.metadata[key] = metadata
 
     def search(
         self,
@@ -45,19 +47,29 @@ class VectorDatabase:
         query_text: str,
         k: int,
         distance_measure: Callable = cosine_similarity,
+        category_filter: str = None,
         return_as_text: bool = False,
     ) -> List[Tuple[str, float]]:
         query_vector = self.embedding_model.get_embedding(query_text)
         results = self.search(query_vector, k, distance_measure)
+        
+        if category_filter:
+            filtered_results = [
+                (key, score) for key, score in results
+                if self.metadata.get(key, {}).get("category") == category_filter
+            ]
+            results = filtered_results[:k]
+        
         return [result[0] for result in results] if return_as_text else results
 
     def retrieve_from_key(self, key: str) -> np.array:
         return self.vectors.get(key, None)
 
-    async def abuild_from_list(self, list_of_text: List[str]) -> "VectorDatabase":
+    async def abuild_from_list(self, list_of_text: List[str], metadata: List[dict] = None) -> "VectorDatabase":
         embeddings = await self.embedding_model.async_get_embeddings(list_of_text)
-        for text, embedding in zip(list_of_text, embeddings):
-            self.insert(text, np.array(embedding))
+        for idx, (text, embedding) in enumerate(zip(list_of_text, embeddings)):
+            chunk_metadata = metadata[idx] if metadata and idx < len(metadata) else None
+            self.insert(text, np.array(embedding), chunk_metadata)
         return self
 
 
