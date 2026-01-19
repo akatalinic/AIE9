@@ -46,11 +46,14 @@ class YTTranscriptLoader:
             print(f"Error loading transcript: {e}")
             return []
 
+        full_text_transcript = []
         for item in transcript:
             text = item.text.strip()
             if text:
-                self.documents.append(text)
-
+                full_text_transcript.append(text)
+        if full_text_transcript:
+           self.documents.append("\n ".join(full_text_transcript))
+        
         return self.documents
 
     def load_documents(self):

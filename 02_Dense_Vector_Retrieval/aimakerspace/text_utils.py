@@ -12,23 +12,23 @@ class TextFileLoader:
     def load(self):
         if os.path.isdir(self.path):
             self.load_directory()
-        elif os.path.isfile(self.path) and self.path.lower().endswith(".txt"):
-            self.load_file()
-        elif os.path.isfile(self.path) and self.path.lower().endswith(".pdf"):
-            self.load_pdf()
+        elif self.path.lower().endswith(".txt"):
+            self.load_file(self.path)
+        elif self.path.lower().endswith(".pdf"):
+            self.load_pdf(self.path)
         else:
             raise ValueError(
                 f"Provided path '{self.path}' is neither a valid directory nor a .txt/.pdf file. "
                 f"File exists: {os.path.isfile(self.path) if os.path.exists(self.path) else False}"
             )
 
-    def load_file(self):
-        with open(self.path, "r", encoding=self.encoding) as f:
+    def load_file(self, path: str):
+        with open(path, "r", encoding=self.encoding) as f:
             self.documents.append(f.read())
 
-    def load_pdf(self):
+    def load_pdf(self, path: str):
         try:
-            reader = pypdf.PdfReader(self.path)
+            reader = pypdf.PdfReader(path)
         except Exception as e:
             print(f"Error loading PDF: {e}")
             return
@@ -36,47 +36,30 @@ class TextFileLoader:
         if reader.is_encrypted:
             print("Skipping encrypted PDF")
             return
-
+        
+        pdf_text = []
         for page_index, page in enumerate(reader.pages):
             try:
                 text = page.extract_text()
                 if text and text.strip():
-                    self.documents.append(text)
+                    pdf_text.append(text)
             except Exception as e:
                 print(f"Skipping page {page_index}: {e}")
+
+        if pdf_text:
+            self.documents.append("\n".join(pdf_text))
 
             
 
     def load_directory(self):
         for root, _, files in os.walk(self.path):
             for file in files:
-                if file.endswith(".txt"):
-                    with open(
-                        os.path.join(root, file), "r", encoding=self.encoding
-                    ) as f:
-                        self.documents.append(f.read())
-                elif file.endswith(".pdf"):
-                    full_path = os.path.join(root, file)
-                    try:
-                        reader = pypdf.PdfReader(full_path)
-                        if reader.is_encrypted:
-                            print("Skipping encrypted PDF")
-                            continue
-                        for page in reader.pages:
-                            try:
-                                text = page.extract_text()
-                                if text and text.strip():
-                                    self.documents.append(text)
-                            except Exception as e:
-                                print(f"Skipping page {page.page_number}: {e}")
-                    except Exception:
-                        print(f"Error loading PDF: {e}")
-                        continue
-
-                    
-
-                        
-
+                full_path = os.path.join(root, file)
+                if file.lower().endswith(".txt"):
+                   self.load_file(full_path)
+                elif file.lower().endswith(".pdf"):
+                   self.load_pdf(full_path)
+                              
     def load_documents(self):
         self.load()
         return self.documents
