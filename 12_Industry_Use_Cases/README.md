@@ -8,6 +8,13 @@
 |:-----------------|:-----------------|:-----------------|:-----------------|:-----------------|:-----------------|
 | [Indusry Use Cases](../00_Docs/Session_Sheets/12_Industry_Use_Cases) | Coming soon! | Coming soon! | You are here! | Coming soon! | Coming soon! |
 
+# Requirements for Certification Challenge Submissions
+
+1. A public (or otherwise shared) link to a **GitHub repo** that contains:
+- A 5-minute (OR LESS) Loom video of a live **demo of your application** that also describes the use case.
+- A **written document** addressing each deliverable and answering each question
+- All relevant code
+
 # 🗺️ Overview
 
 Welcome to the middle of the course!  We’re 5 weeks in, and we’ve covered a lot of ground - you all certainly have enough prototyping skill to be dangerous!
@@ -27,7 +34,7 @@ It's time to put your skills to the test!
 During Cohort 8, here is how the numbers shook out. It took an average of 26.2 hours for people to complete the challenge. This is up slightly from 23.2 hours on average in Cohort 7.
 
 <p align="center">
-  <img src="ccChart.webp" width="80%" />
+  <img src="CertChallenge_AIE8.webp" width="80%" />
 </p>
 
 This type of work, though - scoping a problem, creating a solution to that problem that solves a specific pain point for real customers or stakeholders, and engineering it for scale from day 1, is extremely valuable work. **This kind of pilot project work is easily worth $10-20k for as a solo consultant**. Of course, finding the right buyer and getting them to buy is a separate issue...
@@ -66,22 +73,16 @@ The best AI engineers can do both.
 
 Once you know the problem to be solved, you must be capable of guiding your team towards implementation.
 
-# Task 1: Defining Problem, Audience, and Scope
+## Task 1: Articulate the problem and the user of your application
 
 **You are an AI Solutions Engineer**.
 
 **What** problem do you want to solve?  **Who** is it a problem for?
 
-<aside>
-📝
-
-Task 1: Articulate the problem and the user of your application
-
 *Hints:* 
 
 - *Create a list of potential questions that your user is likely to ask!*
 - *What is the user’s job title, and what is the part of their job function that you’re trying to automate?*
-</aside>
 
 **✅ Deliverables**
 
@@ -89,22 +90,15 @@ Task 1: Articulate the problem and the user of your application
 2. Write 1-2 paragraphs on why this is a problem for your specific user
 3. Create a list of questions or input-output pairs that you can use to evaluate your application
 
-# Task 2: Propose a Solution
+# Task 2:** Articulate your proposed solution**
 
 Now that you’ve defined a problem and a user, *there are many possible solution implementations.*
 
 Choose one, and articulate it.
 
-<aside>
-📝
-
-Task 2: Articulate your proposed solution
-
-*Hint:*  
-
+*Hints:*  
 - *Recall the [LLM Application stack](https://a16z.com/emerging-architectures-for-llm-applications/) we’ve discussed*
 - *What are the specific solution architecture decisions you need to make, and what are the tradeoffs?*
-</aside>
 
 **✅ Deliverables**
 
@@ -122,37 +116,23 @@ Task 2: Articulate your proposed solution
     10. Any other components you need
 3. What are the RAG and agent components of your project, exactly?
 
-# Task 3: Dealing with the Data
+## Task 3: Collect your own data (RAG) and choose at least one external API to use (Agent)
 
-**You are an AI Systems Engineer.**  The AI Solutions Engineer has handed off the plan to you.  *At a minimum*, you’ll need to implement a simple Agentic RAG solution that includes two aspects:
+**You are an AI Systems Engineer.**  The AI Solutions Engineer has handed off the plan to you. *At a minimum*, you’ll need to implement a simple Agentic RAG solution that includes two aspects:
 
 1. Your own personal data, uploaded to your application (e.g., RAG)
 2. The ability to search publicly available data (e.g., a simple agentic search tool like [Tavily](https://tavily.com/))
 
-<aside>
-📝
-
-Task 3: Collect your own data (RAG) and choose at least one external API to use (Agent)
-
-*Hint:*  
-
+*Hints:*  
 - *Ask other real people (ideally the people you’re building for!) what they think.*
 - *What are the specific questions that your user is likely to ask of your application?  **Write these down**.*
-</aside>
-
+  
 **✅ Deliverables**
 
 1. Describe the default chunking strategy that you will use for your data.  Why did you make this decision?
 2. Describe your data source and the external API you plan to use, as well as what role they will play in your solution. Discuss how they interact during usage. 
 
-# Task 4: Building an End-to-End Agentic RAG Prototype
-
-<aside>
-📝
-
-Task 4: Build an end-to-end Agentic RAG application using a production-grade stack and your choice of commercial off-the-shelf model(s)
-
-</aside>
+## Task 4: Build an end-to-end Agentic RAG application using a production-grade stack and your choice of commercial off-the-shelf model(s)
 
 **✅ Deliverables**
 
@@ -160,32 +140,18 @@ Task 4: Build an end-to-end Agentic RAG application using a production-grade sta
 2. (Optional) Use locally-hosted OSS models instead of LLMs through the OpenAI API
 3. (Optional) Deploy your prototype to public endpoint using a tool like [Vercel](http://vercel.com/), [Render](https://render.com/), or [FastAPI Cloud](https://fastapicloud.com/)
 
-# Task 5: Evals
+## Task 5: Prepare a test data set (either by generating synthetic data or by assembling an existing dataset) to baseline an initial evaluation with RAGAS
 
 **You are an AI Evaluation & Performance Engineer.**  The AI Systems Engineer who built the initial RAG system has asked for your help and expertise in creating a "Golden Data Set" for evaluation.
-
-<aside>
-📝
-
-Task 5: Prepare a test data set (either by generating synthetic data or by assembling an existing dataset) to baseline an initial evaluation with RAGAS.
-
-</aside>
 
 **✅ Deliverables**
 
 1. Assess your pipeline using the RAGAS framework, including the following key metrics: faithfulness, context precision, and context recall. Include any other metrics you feel are worthwhile to assess.   Provide a table of your output results.
 2. What conclusions can you draw about the performance and effectiveness of your pipeline with this information?
 
-# Task 6: Improving Your Prototype
+## Task 6: Install an advanced retriever of your choosing in our Agentic RAG application
 
 **You are an AI Systems Engineer.**  The AI Evaluation and Performance Engineer has asked for your help in making stepwise improvements to the application. You will work together with them on this task.
-
-<aside>
-📝
-
-Task 6: Install an advanced retriever of your choosing in our Agentic RAG application. 
-
-</aside>
 
 **✅ Deliverables**
 
@@ -193,9 +159,9 @@ Task 6: Install an advanced retriever of your choosing in our Agentic RAG applic
 2. Implement the advanced retrieval technique on your application.
 3. How does the performance compare to your original RAG application?  Test the fine-tuned embedding model using the RAGAS frameworks to quantify any improvements.  Provide results in a table.
 
-# Task 7: Next Steps
+## Task 7: Next Steps
 
-You are the **AI Solutions Engineer**. **AI Evaluation & Performance Engineer**. 
+You are the **AI Solutions Engineer** working with the **AI Evaluation & Performance Engineer**. 
 
 1. Do you plan to keep your RAG implementation via Dense Vector Retrieval for Demo Day? Why or why not?
 
@@ -204,6 +170,6 @@ You are the **AI Solutions Engineer**. **AI Evaluation & Performance Engineer**.
 Please include the following in your final submission:
 
 1. A public (or otherwise shared) link to a **GitHub repo** that contains:
-    1. A 5-minute (OR LESS) Loom video of a live **demo of your application** that also describes the use case.
-    2. A **written document** addressing each deliverable and answering each question
-    3. All relevant code
+- A 5-minute (OR LESS) Loom video of a live **demo of your application** that also describes the use case.
+- A **written document** addressing each deliverable and answering each question
+- All relevant code
